@@ -1,17 +1,26 @@
-.bot-army {
+/* .bot-army {
   overflow-x: scroll;
   min-height: 300px;
   max-width: 100%;
-}
+} */
 
-.ui.grid > .row.bot-army-row {
+/* .ui.grid > .row.bot-army-row {
   flex-wrap: nowrap;
   min-height: 100%;
 }
 
 .ui.grid {
   padding: 0px 20px;
+} */
+
+.ui.menu {
+  background: space;
 }
+
+.ui.grid>.row {
+  margin: 35px;
+}
+
 
 .navbar {
   padding: 10px 0px;
@@ -63,6 +72,8 @@ body {
   background-image: url("https://cdn.wallpapersafari.com/82/97/UHpNxb.jpg");
   background-color: #cccccc;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: auto;
  }
 

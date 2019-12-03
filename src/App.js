@@ -4,7 +4,7 @@ import './App.css';
 import CharacterCollection from './containers/character-collection';
 import CreateCharacter from './components/create';
 import Party from './components/party';
-import Character from './components/character';
+// import Character from './components/character';
 
 const API = 'http://localhost:3000/api/v1/characters'
 

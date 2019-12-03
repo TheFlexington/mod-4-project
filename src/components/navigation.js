@@ -6,17 +6,11 @@ class NavBar extends React.Component {
 
   render(){
 
-    console.log(this.props)
+    // console.log(this.props)
 
     return (
 
-      <div className="navbar">
-            {/* <ul className='navul'>
-                <li className='navli'><a href="">Home</a></li>
-                <li className='navli'><a href="">New Character</a></li>
-                <li className='navli'><a href="">Character List</a></li>
-                <li className='navli'><a href="">Shop</a></li>
-            </ul>  */}
+      <div className="ui menu">
           <ul className='navul'>
             <button onClick={this.props.toggleForm} className="ui button"> New Character! </button>
             <button className="ui button"> Home </button>
