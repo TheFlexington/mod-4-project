@@ -21,7 +21,7 @@
 .create-window {
   /* Add shadows to create the "card" effect */
   /* text-align: center; */
-  background-color: brown;
+  background-image: url(https://img.freepik.com/free-vector/yellow-parchment_53876-91513.jpg?size=626&ext=jpg);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding: 2px 16px;

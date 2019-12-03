@@ -6,6 +6,8 @@ class NavBar extends React.Component {
 
   render(){
 
+    console.log(this.props)
+
     return (
 
       <div className="navbar">
@@ -16,10 +18,11 @@ class NavBar extends React.Component {
                 <li className='navli'><a href="">Shop</a></li>
             </ul>  */}
           <ul className='navul'>
-            <button> New Character! </button>
-            <button> Home </button>
-            <button> Character List </button>
-            <button> Shop </button>
+            <button onClick={this.props.toggleForm} className="ui button"> New Character! </button>
+            <button className="ui button"> Home </button>
+            <button onClick={this.props.getCharacters} className="ui button"> All Characters </button>
+            <button onClick={this.props.toggleParty} className="ui button"> Your Party </button>
+            <button className="ui button"> Shop </button>
           </ul> 
       </div>
 
