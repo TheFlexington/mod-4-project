@@ -4,7 +4,7 @@ import './App.css';
 import CharacterCollection from './containers/character-collection';
 import CreateCharacter from './components/create';
 import Party from './components/party';
-// import Character from './components/character';
+// import { thisTypeAnnotation } from '@babel/types';
 
 const API = 'http://localhost:3000/api/v1/characters'
 
@@ -26,11 +26,33 @@ class App extends Component {
       })
   }
 
-  // renderCharacters(characters){
-  //   characters.map(char => {
-  //     return <Character character={char} />
-  //   })
-  // }
+  renderCharacter = (character) => {
+    this.setState({
+      allCharacters: [...this.state.allCharacters, character]
+    })
+  }
+
+  removeCharacter = (id) => {
+    let arr = [];
+    this.state.allCharacters.filter((char) => {
+      if (id !== char.id) {
+        arr = [...arr, char]
+      }
+    })
+    this.setState({
+      allCharacters: arr
+    })
+  }
+
+  deleteCharacter = (id) => {
+    fetch(`${API}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json' }
+    })
+    this.removeCharacter(id)
+  }
 
   toggleForm = () => {
     this.setState({
@@ -50,7 +72,7 @@ class App extends Component {
 
     let form;
     if (this.state.form) {
-      form = <CreateCharacter />
+      form = <CreateCharacter renderCharacter={this.renderCharacter} removeCharacter={this.removeCharacter} />
     }
 
     let party;
@@ -69,7 +91,7 @@ class App extends Component {
         </div>
 
         <div className='character-container'>
-          <CharacterCollection allCharacters={this.state.allCharacters} />
+          <CharacterCollection allCharacters={this.state.allCharacters} deleteCharacter={this.deleteCharacter}/>
         </div>
 
       </div>

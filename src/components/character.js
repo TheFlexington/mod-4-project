@@ -5,8 +5,11 @@ function Character(props) {
   
     let male = 'https://www.empiredancechampionship.com/wp-content/uploads/sites/3/2015/06/male-silhouette.jpg'
     let female = 'https://electronpencil.com/wp-content/uploads/2017/07/female-silhouette-600x600.jpg'
+
+
     return (
-        console.log(props.character.strength),
+
+        // console.log(props),
 
         <div className='ui column'>
             <div className='ui card'>
@@ -20,6 +23,7 @@ function Character(props) {
                     Endurance: {props.character.endurance} <br/>
                     Luck: {props.character.luck} <br/>
                 </p>
+                <button className="ui mini button" onClick={() => props.deleteCharacter(props.character.id)}>Delete</button>
             </div>
         </div>
     );

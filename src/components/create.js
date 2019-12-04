@@ -29,7 +29,21 @@ class CreateCharacter extends Component {
             body: JSON.stringify(this.state)
         })
         .then(res => res.json())
-        .then( console.log )
+        .then(char => this.props.renderCharacter(char))
+        this.clearState()
+    }
+
+    clearState = () => {
+        this.setState({
+            skillPoints: 40,
+            gender: '',
+            name: '',
+            strength: 0,
+            dexterity: 0,
+            intelligence: 0,
+            endurance: 0,
+            luck: 0,
+        })
     }
 
     clickHandlerPlus = (e, stat) => {
@@ -72,17 +86,17 @@ class CreateCharacter extends Component {
 
     render() { 
 
-        // console.log(this.state)
+        console.log(this.props)
 
         return (
 
     <div className='create-window'><br/>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} id='create-character-form'>
 
             Name: <br/>
             <input onChange={e => this.nameHandler(e)} placeholder="Enter name..." value={this.state.name} name="name" /> <br/><br/>
 
-            <select name='gender' value={this.state.gender} onChange={e => this.genderHandler(e)}>
+            <select name='gender' value={this.state.gender} onChange={e => this.genderHandler(e)} className='ui search selection dropdown'>
                 <option >Select...</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>

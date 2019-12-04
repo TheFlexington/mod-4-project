@@ -13,7 +13,7 @@ class CharacterCollection extends React.Component {
 
             <div className="ui four column grid">
                 <div className='row'>
-                    {this.props.allCharacters.map(character => <Character key={character.id} character={character} />)}
+                    {this.props.allCharacters.map(character => < Character key={character.id} character={character} deleteCharacter={this.props.deleteCharacter} />)}
                 </div>
             </div>
         );
