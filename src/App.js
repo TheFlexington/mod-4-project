@@ -4,7 +4,14 @@ import './App.css';
 import CharacterCollection from './containers/character-collection';
 import CreateCharacter from './components/create';
 import Party from './components/party';
-// import { thisTypeAnnotation } from '@babel/types';
+import {
+  BrowserRouter as Router,
+  // Switch,
+  // Route,
+  // Link,
+  // useRouteMatch,
+  // useParams
+} from "react-router-dom";
 
 const API = 'http://localhost:3000/api/v1/characters'
 
@@ -77,7 +84,7 @@ class App extends Component {
 
     let party;
     if (this.state.party) {
-      party = <Party />
+      party = <Party allCharacters={this.state.allCharacters}/>
     }
 
     return (
