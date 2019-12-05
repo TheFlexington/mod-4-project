@@ -40,12 +40,17 @@ class App extends Component {
   }
 
   removeCharacter = (id) => {
-    let arr = [];
-    this.state.allCharacters.filter((char) => {
-      if (id !== char.id) {
-        arr = [...arr, char]
-      }
+    // let arr = [];
+    // this.state.allCharacters.filter((char) => {
+    //   if (id !== char.id) {
+    //     arr = [...arr, char]
+    //   }
+    // })
+
+    let arr = this.state.allCharacters.filter((char) => {
+      return id !== char.id
     })
+
     this.setState({
       allCharacters: arr
     })
@@ -63,13 +68,15 @@ class App extends Component {
 
   toggleForm = () => {
     this.setState({
-      form: !this.state.form
+      form: !this.state.form,
+      party: false
     })
   }
 
   toggleParty = () => {
     this.setState({
-      party: !this.state.party
+      party: !this.state.party,
+      form: false
     })
   }
 

@@ -12,10 +12,10 @@ function Character(props) {
         // console.log(props),
 
         <div className='ui column'>
-            <div className='ui card'>
+            <div className='ui card' key={props.character.id}>
                 <img src={ props.character.gender === 'male' ? male : female } className='ui image' alt=''/>
                 <p>
-                    Name: {props.character.name} <br/>
+                    Name: <input type='text' value={props.character.name}/> <br/>
                     Gold: {props.character.gold} <br/>
                     Strength: {props.character.strength} <br/>
                     Dexterity: {props.character.dexterity} <br/>
@@ -24,6 +24,7 @@ function Character(props) {
                     Luck: {props.character.luck} <br/>
                 </p>
                 <button className="ui mini button" onClick={() => props.deleteCharacter(props.character.id)}>Delete</button>
+                <button className="ui mini button" onClick={ null }>Update</button>
             </div>
         </div>
     );
