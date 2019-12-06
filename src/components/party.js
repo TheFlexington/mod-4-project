@@ -6,7 +6,12 @@ class Party extends React.Component {
 
     state = {
         name: '',
-        partyMembers: []
+        party: [],
+        partyMember1: '',
+        partymember2: '',
+        partymember3: '',
+        partymember4: '',
+        partymember5: ''
     }
 
 
@@ -17,9 +22,10 @@ class Party extends React.Component {
     }
 
     optionCharacter = (e) => {
-        console.log(e.target.value)
+        console.log(this.state.party)
         this.setState({
-            partyMember1: e.target.value
+            [e.target.id]: e.target.value,
+            party: [...this.state.party, [e.target.value]]
         })
     }
 
@@ -33,7 +39,7 @@ class Party extends React.Component {
     render () {
 
         // console.log(this.state.partyMember1.name)
-        console.log(this.state)
+        console.log(this.state.partyMember1.name)
 
         return ( 
 
@@ -51,24 +57,24 @@ class Party extends React.Component {
                         { this.props.allCharacters.map( char => { return <option value={char}>{ char.name }</option>}) }
                     </select> First Party Member <br/>
 
-                    <select id='partymember2' className='ui search selection dropdown'>
+                    <select id='partymember2' className='ui search selection dropdown' onChange={ this.optionCharacter }>
                         <option>Select Character...</option>
-                        { this.props.allCharacters.map( char => { return <option>{ char.name }</option>}) }
+                        { this.props.allCharacters.map( char => { return <option value={char}> { char.name }</option>}) }
                     </select> Second Party Member <br/>
 
-                    <select id='partymember3' className='ui search selection dropdown'>
+                    <select id='partymember3' className='ui search selection dropdown' onChange={ this.optionCharacter }>
                         <option>Select Character...</option>
-                        { this.props.allCharacters.map( char => { return <option>{ char.name }</option>}) }
+                        { this.props.allCharacters.map( char => { return <option value={char}>{ char.name }</option>}) }
                     </select> Third Party Member <br/>
 
-                    <select id='partymember4' className='ui search selection dropdown'>
+                    <select id='partymember4' className='ui search selection dropdown' onChange={ this.optionCharacter }>
                         <option>Select Character...</option>
-                        { this.props.allCharacters.map( char => { return <option>{ char.name }</option>}) }
+                        { this.props.allCharacters.map( char => { return <option value={char}>{ char.name }</option>}) }
                     </select> Fourth Party Member <br/>
 
-                    <select id='partymember5' className='ui search selection dropdown'>
+                    <select id='partymember5' className='ui search selection dropdown' onChange={ this.optionCharacter }>
                         <option>Select Character...</option>
-                        { this.props.allCharacters.map( char => { return <option>{ char.name }</option>}) }
+                        { this.props.allCharacters.map( char => { return <option value={char}>{ char.name }</option>}) }
                     </select> Fifth Party Member <br/> <br/>
 
                     <input type="submit" value="Submit" />

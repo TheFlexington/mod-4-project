@@ -15,7 +15,7 @@ function Character(props) {
             <div className='ui card' key={props.character.id}>
                 <img src={ props.character.gender === 'male' ? male : female } className='ui image' alt=''/>
                 <p>
-                    Name: <input type='text' value={props.character.name}/> <br/>
+                    Name: {props.character.name} <br/>
                     Gold: {props.character.gold} <br/>
                     Strength: {props.character.strength} <br/>
                     Dexterity: {props.character.dexterity} <br/>
